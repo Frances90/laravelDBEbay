@@ -1,16 +1,8 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ListingController;
 use Illuminate\Support\Facades\Route;
-Route::get("/hello", function () {
-    return view('hello');
-});
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/check-name', function () {
-    return response()->json([
-    'name' => config('app.name'),
-    ]);
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::resource('listings', ListingController::class);
