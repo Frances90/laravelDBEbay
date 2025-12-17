@@ -16,7 +16,7 @@ class Listing extends Model
         return $this->belongsTo(Customer::class);
     }
 
-    public function image(){
+    public function images(){
         return $this->hasMany(ListingImage::class);
     }
 
@@ -24,5 +24,19 @@ class Listing extends Model
         return $this->belongsToMany(Customer::class, 'favorites');
 
     }
+
+    /* 
+        use App\Models\Listing;
+
+        $listing = Listing::create([
+            'customer_id' => 1,
+            'name' => 'Ford Mustang',
+            'beschreibung' => 'Kaufen Sie ein geiles Auto, was kaum gefahren wurde.',
+            'preis' => 10000.00
+        ]);
+
+        $listing = Listing::find(1);
+        $listing->images;
+    */
 
 }

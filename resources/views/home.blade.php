@@ -10,6 +10,7 @@
     <div>
         <h1>Willkommen auf DBEBay!</h1>
         <p>Dies ist die Home Seite.</p>
+        <a href="{{ route('listings.index') }}">Alle Artikel ansehen</a>
     </div>
 </body>
 </html>

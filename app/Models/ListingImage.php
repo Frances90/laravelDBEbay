@@ -14,4 +14,13 @@ class ListingImage extends Model
     public function listing(){
         return $this->belongsTo(Listing::class);
     }
+
+    /* 
+        use App\Models\ListingImage;
+
+        $image = ListingImage::create([
+            'listing_id' => $listing->id,
+            'image_path' => 'uploads/mustang123.jpg'
+        ]);
+    */
 }
