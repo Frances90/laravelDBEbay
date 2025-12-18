@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
+@section('title', 'Alle Artikel anzeigen')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Alle Artikel</title>
-</head>
+@section('content')
 
-<body>
     <h1>Alle Artikel</h1>
-    <a href="{{ route('listings.create') }}">Neues Listing erstellen</a>
+    <a href="{{ route('listings.create') }}">Neuen Eintrag hinzufügen</a>
 
     @foreach ($listings as $listing)
         <div>
@@ -26,6 +20,4 @@
             </form>
         </div>
     @endforeach
-</body>
-
-</html>
+@endsection

@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
+@section('title', 'Artikel erstellen')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Artikel erstellen</title>
-</head>
+@section('content')
 
-<body>
     <h1>Neuen Artikel erstellen</h1>
     <form action="{{ route('listings.store') }}" method="POST">
         {{-- Fügt ein CSRF-Token hinzu, um die Sicherheit zu gewährleisten. --}}
@@ -23,6 +17,4 @@
         <button type="submit">Erstellen</button>
     </form>
     <a href="{{ route('listings.index') }}">Zurück</a>
-</body>
-
-</html>
+@endsection

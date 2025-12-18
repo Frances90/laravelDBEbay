@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
+@section('title', 'Artikel bearbeiten')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Artikel bearbeiten</title>
-</head>
+@section('content')
 
-<body>
     <h1>Artikel bearbeiten</h1>
     <form action="{{ route('listings.update', $listing->id) }}" method="POST">
         @csrf
@@ -22,6 +16,4 @@
         <button type="submit">Speichern</button>
     </form>
     <a href="{{ route('listings.index') }}">Zurück</a>
-</body>
-
-</html>
+@endsection
