@@ -11,7 +11,7 @@
             </div>
 
             <div class="group_inputs">
-                <img class="icon" src="{{ asset('img/location.svg') }}" alt="Lupe für die Suche">
+                <img class="icon" src="{{ asset('img/location.svg') }}" alt="Ort wo der Artikel sich befindet">
                 <input type="text" placeholder="PLZ oder Ort" />
             </div>
 
