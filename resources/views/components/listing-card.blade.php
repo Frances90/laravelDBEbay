@@ -1,5 +1,7 @@
 <div class="listing">
-    <img class="image_artikel" src="img/Ford123.jpg" alt="Artikel Bild">
+    <div class="container_image" >
+    <img class="image_artikel" src="{{ asset('storage/listing_images/'.$listing->images[0]->image_path) }}" alt="Artikelbild">
+    </div>
     <div class="container_linie"></div>
     <h2 class="header">
         <a class="header_artikel" href="{{ route('listings.show', $listing->id) }}">{{ $listing->name}}</a>

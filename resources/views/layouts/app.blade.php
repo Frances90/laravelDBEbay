@@ -10,6 +10,7 @@
 
 </head>
 <body>
+    <x-flash-message></x-flash-message>
     @include('layouts.header')
 
     <main>
