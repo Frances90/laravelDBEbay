@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title', 'DBEBay')</title>
     
-    @vite(['resources/css/header.css', 'resources/css/footer.css'])
+    @vite(['resources/css/header.css', 'resources/css/footer.css', 'resources/css/listing.css'])
 
 </head>
 <body>
