@@ -2,6 +2,7 @@
 @section('title', 'Artikel ansehen')
 @vite(['resources/css/details.css'])
 @section('content')
+<div id="container_center">
     <div class="container_details">
         <div class="container_images_details">
             <div class="container_images_hauptbild">
@@ -93,5 +94,6 @@
 
 
 
+    </div>
     </div>
 @endsection
