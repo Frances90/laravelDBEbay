@@ -1,0 +1,135 @@
+.container_details{
+    margin: 80px;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.container_images_details{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+    height: 350px;
+}
+.container_images_hauptbild{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    height: 350px;
+}
+
+.container_images{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.container_image_artikel_details{
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    padding: 15px 0px;
+    box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.5);
+    border-radius: 10px;
+}
+.image_artikel_details{
+    width: auto;
+    max-width: 100px;
+    height: auto;
+    max-height: 100px;
+}
+.container_hauptbild{
+    width: 500px;
+    height: 350px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image_artikel_hauptbild{  
+    max-height: 300px;
+}
+
+.container_details_favorites{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.container_details_preis{
+    border: 2px solid #1CB1B1;
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.container_icon_details{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.icon_details{
+    width: 15px;
+    padding-right: 10px
+}
+
+.subheaders{
+    font-weight: 600;
+}
+
+.subdetails{
+    padding-left: 25px;
+}
+
+.mail{
+    font-weight: 600;
+}
+
+.preis_details{
+    color: #1CB1B1;
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.container_btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 30px;
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+    border-radius: 25px;
+}
+
+.container_beschreibung{
+    flex: 1;                
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.datum{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.beschreiung_favorite{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 5px;
+}
