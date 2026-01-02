@@ -1,6 +1,6 @@
 <header>
     <nav id="nav_header">
-        <a href="{{ route('listings.index') }}">
+        <a href="{{ route('Startseite') }}">
             <img src="{{ asset('img/logo.svg') }}" alt="Logo der App">
         </a>
         

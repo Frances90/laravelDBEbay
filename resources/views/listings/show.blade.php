@@ -88,7 +88,7 @@
 
                 <p>{{ $listing->beschreibung }}</p>
                 <p>
-                    <a href="{{ route('listings.index') }}">Zurück zur Übersicht</a>
+                    <a href="{{ route('Startseite') }}">Zurück zur Übersicht</a>
                 </p>
             </div>
 
