@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Registrierung')
 @section('content')
     <div id="container_register">
         <div class="auth-container">

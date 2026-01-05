@@ -1,0 +1,83 @@
+.auth_container_login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 50px;
+    border: 2px solid #1CB1B1;
+    border-radius: 10px;
+    background: #fff;
+
+    margin: 15px 0;
+}
+
+.container_login_header_span{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+#header_login_register{
+    color: #1CB1B1;
+}
+
+#span_login_register{
+    font-weight: 600;
+}
+
+.container_login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
+
+.container_login_icon_input{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.design_login_input{
+    width: 350px;
+    padding: 10px 18px;
+    border-radius: 22px;
+    border: 1px solid #b9baba;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+
+}
+
+#container_login_btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 45px;
+}
+
+#container_login_btn button{
+    background: #1CB1B1;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 100px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#container_registrieren{
+    margin-top: 60px;
+}
+
+#container_registrieren span{
+    font-weight: 600;
+}
+#registrieren{
+    color: #f82b1e;
+}
+
+#registrieren a:visited {
+  color: #f82b1e;
+}
