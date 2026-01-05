@@ -42,9 +42,9 @@ class Customer extends Authenticatable
 
         // use App\Models\Customer;
         /* $customer = Customer::create(Array(
-            'name' => 'Emilie Mustermann',
-            'email' => 'emilie@example.com',
-            'password' => bcrypt('geheim'),
+            'name' => 'Frances Mustermann',
+            'email' => 'frances@example.com',
+            'password' => bcrypt('123456'),
             'plz' => '54321',
             'ort' => 'Berlin',
             'strasse' => 'Musterstraße',

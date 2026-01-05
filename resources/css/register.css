@@ -1,0 +1,112 @@
+.auth-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 50px;
+    border: 1px solid #f82b1e;
+    border-radius: 10px;
+    background: #fff;
+
+    margin: 15px 0;
+}
+
+.container_header_span{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+#header_register{
+    color: #f82b1e;
+}
+
+#span_register{
+    font-weight: 600;
+}
+
+#container_register{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+    padding-top: 15px;
+    margin: 30px;
+}
+
+.container_icon_input{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.design_input{
+    width: 260px;
+    padding: 10px 18px;
+    border-radius: 22px;
+    border: 1px solid #b9baba;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+#container_mail_pwd{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#container_adresse{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.address_reihe {
+    gap: 0;
+    
+}
+
+.address_reihe .strasse {
+    width: 25%;
+    border-radius: 22px 0 0 22px;
+    border-right: none;
+    margin-left: 20px;
+}
+
+.address_reihe .hausnummer {
+    width: 25%;
+    border-radius: 0 22px 22px 0;
+    border-left: none;
+}
+
+.plz {
+    width: 25%;
+    margin-left: 20px;
+}
+
+.ort {
+    width: 25%;
+}
+
+.telefonnummer{
+   width: 59%;
+}
+
+#container_btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+#container_btn button{
+    background: #f82b1e;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 60px;
+    font-weight: 600;
+    cursor: pointer;
+}
