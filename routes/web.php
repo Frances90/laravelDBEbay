@@ -9,9 +9,6 @@ use Illuminate\Support\Facades\Route;
 // Startseite auf Listings gesetzt
 Route::get('/', [ListingController::class, 'index'])->name('Startseite'); 
 
-// Detailansicht für Listings
-Route::get('/listings/{listing}', [ListingController::class, 'show'])->name('listings.show');
-
 Route::middleware(['auth'])->group(function () {
  
     Route::get('/listings/create', [ListingController::class, 'create'])->name('listings.create');
@@ -23,7 +20,16 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/listings/{listing}', [ListingController::class, 'update'])->name('listings.update');
  
     Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->name('listings.destroy');
+
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+
+    Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+
+    Route::post('/profile/password', [ProfileController::class, 'updatePassword'])->name('profile.password');
  
 });
+
+// Detailansicht für Listings
+Route::get('/listings/{listing}', [ListingController::class, 'show'])->name('listings.show');
 
 require __DIR__.'/auth.php';

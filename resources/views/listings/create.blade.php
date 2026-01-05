@@ -16,5 +16,5 @@
         <input type="number" step="0.01" name="preis" required>
         <button type="submit">Erstellen</button>
     </form>
-    <a href="{{ route('listings.index') }}">Zurück</a>
+    <a href="{{ route('Startseite') }}">Zurück</a>
 @endsection
