@@ -25,6 +25,11 @@ class Listing extends Model
 
     }
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
     /* 
         use App\Models\Listing;
 

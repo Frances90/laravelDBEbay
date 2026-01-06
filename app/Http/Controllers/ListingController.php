@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,11 @@ class ListingController extends Controller
      */
     public function create()
     {
-        return view('listings.create');
+        // Alle Kategorien aus der DB holen
+        $categories = Category::all();
+
+        // View mit Kategorien aufrufen
+        return view('listings.create', compact('categories'));
     }
 
     /**
@@ -33,15 +38,23 @@ class ListingController extends Controller
         $request->validate([
             'name' => 'required', 
             'beschreibung' => 'required', 
-            'preis' => 'required|numeric'
+            'preis' => 'required|numeric',
+            'category_id' => 'required|exists:categories,id',
         ]);
-        Listing::create([
-            'customer_id' => auth()->id() || $request->customer_id,
-            'name' => $request->name, 
-            'beschreibung' => $request->beschreibung, 
-            'preis' => $request->preis
-        ]);
-        return redirect()->route('listings.index')->with('success','Der Artikel wurde erstellt.');
+
+        // Customer ID hinzufügen
+        $validatedData['customer_id'] = auth()->id();
+
+        Listing::create($validatedData);
+
+        // Listing::create([
+        //     'customer_id' => auth()->id() || $request->customer_id,
+        //     'name' => $request->name, 
+        //     'beschreibung' => $request->beschreibung, 
+        //     'preis' => $request->preis
+        // ]);
+         // Benutzer zur Übersichtsseite weiterleiten
+        return redirect()->route('Startseite')->with('success', 'Artikel erfolgreich erstellt!');
     }
 
     /**
@@ -57,7 +70,8 @@ class ListingController extends Controller
      */
     public function edit(Listing $listing)
     {
-        return view('listings.edit', compact('listing'));
+        $categories = Category::all();
+        return view('listings.edit', compact(['listing','categories']));
     }
 
     /**
