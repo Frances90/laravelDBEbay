@@ -7,27 +7,14 @@
         <div class="container_images_details">
             <div class="container_images_hauptbild">
                 <div class="container_images">
-                    @if (isset($listing->images[1]))
+                    @for ($i = 1; $i < 5; $i++)
+                        @if (isset($listing->images[$i]))
                         <div class="container_image_artikel_details">
-                            <img class="image_artikel_details"
-                                src="{{ asset('storage/listing_images/' . $listing->images[1]->image_path) }}"
-                                alt="Artikelbild">
+                                <img class="image_artikel_details" src="{{ asset('storage/listing_images/' . $listing->images[$i]->image_path) }}"
+                                alt="Artikel Bild {{ $i }}">
                         </div>
-                    @endif
-                    @if (isset($listing->images[2]))
-                        <div class="container_image_artikel_details">
-                            <img class="image_artikel_details"
-                                src="{{ asset('storage/listing_images/' . $listing->images[2]->image_path) }}"
-                                alt="Artikelbild">
-                        </div>
-                    @endif
-                    @if (isset($listing->images[3]))
-                        <div class="container_image_artikel_details">
-                            <img class="image_artikel_details"
-                                src="{{ asset('storage/listing_images/' . $listing->images[3]->image_path) }}"
-                                alt="Artikelbild">
-                        </div>
-                    @endif
+                        @endif
+                    @endfor
                 </div>
                 <div class="container_hauptbild">
                     <img class="image_artikel_hauptbild"

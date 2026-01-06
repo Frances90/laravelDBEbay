@@ -10,7 +10,7 @@
                 </div>
 
             
-            <form action="{{ route('listings.store') }}" method="POST">
+            <form action="{{ route('listings.store') }}" method="POST" enctype="multipart/form-data">
                 {{-- Fügt ein CSRF-Token hinzu, um die Sicherheit zu gewährleisten. --}}
                 @csrf
                 <div class="container_verwalten_label_input_btn">
@@ -34,7 +34,11 @@
                     <div class="verwalten_label_input">  
                         <label>Beschreibung:</label>
                         <textarea name="beschreibung" required placeholder="Beschreibe deinen Artikel"></textarea>
-                    </div>        
+                    </div>     
+                    <div class="verwalten_label_input">     
+                        <label for="images">Bilder hochladen:</label>
+                        <input type="file" name="images[]" multiple>
+                    </div>   
                     <div class="container_verwalten_btn">
                         <button type="submit">Erstellen</button>
                     </div>

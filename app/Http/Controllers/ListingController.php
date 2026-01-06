@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Listing;
+use App\Models\ListingImage;
 use Illuminate\Http\Request;
 
 class ListingController extends Controller
@@ -14,7 +15,7 @@ class ListingController extends Controller
      */
     public function index()
     {
-        $listings = Listing::orderBy("created_at","desc")->paginate(10);
+        $listings = Listing::orderBy("created_at", "desc")->paginate(10);
         return view("listings.index", compact("listings"));
     }
 
@@ -35,25 +36,35 @@ class ListingController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required', 
-            'beschreibung' => 'required', 
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'beschreibung' => 'required',
             'preis' => 'required|numeric',
             'category_id' => 'required|exists:categories,id',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Customer ID hinzufügen
-        $validatedData['customer_id'] = auth()->id();
+        $listing = Listing::create([
+            'customer_id' => auth()->id(),
+            'name' => $validatedData['name'],
+            'beschreibung' => $validatedData['beschreibung'],
+            'category_id' => $validatedData['category_id'],
+            'preis' => $validatedData['preis'],
+        ]);
 
-        Listing::create($validatedData);
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $path = $image->store('listing_images', 'public');
+                // Nur den Dateinamen extrahieren
+                $filename = basename($path);
+                ListingImage::create([
+                    'listing_id' => $listing->id,
+                    'image_path' => $filename,
+                ]);
+            }
+        }
 
-        // Listing::create([
-        //     'customer_id' => auth()->id() || $request->customer_id,
-        //     'name' => $request->name, 
-        //     'beschreibung' => $request->beschreibung, 
-        //     'preis' => $request->preis
-        // ]);
-         // Benutzer zur Übersichtsseite weiterleiten
+
         return redirect()->route('Startseite')->with('success', 'Artikel erfolgreich erstellt!');
     }
 
@@ -71,7 +82,7 @@ class ListingController extends Controller
     public function edit(Listing $listing)
     {
         $categories = Category::all();
-        return view('listings.edit', compact(['listing','categories']));
+        return view('listings.edit', compact(['listing', 'categories']));
     }
 
     /**
@@ -80,8 +91,8 @@ class ListingController extends Controller
     public function update(Request $request, Listing $listing)
     {
         $request->validate([
-            'name' => 'required', 
-            'beschreibung' => 'required', 
+            'name' => 'required',
+            'beschreibung' => 'required',
             'preis' => 'required|numeric'
         ]);
 
