@@ -1,0 +1,205 @@
+.profile-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 50px;
+    background: #f5f5f5;
+}
+
+#container_profil{
+    display: flex;
+    flex-direction: row;
+}
+
+#container_profildetails_passwort{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.container_btn_profildetails{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    margin: 15px 0;
+    padding: 10px 10px;
+    border: 2px solid #1CB1B1;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.container_profildetails{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background: #fff;
+}
+
+.container_profildetails label{
+    font-weight: 600;
+}
+
+.container_input_label{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.container_input_label label{
+    width: 120px;
+}
+
+.container_input_label input{
+    border: 1px dotted #e6e6e6;
+}
+
+#profil_adresse input{
+    border: 1px dotted #e6e6e6;
+}
+
+#profil_daten{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#container_adresse{
+    display: flex;
+    flex-direction: row;
+}
+
+#profil_adresse{
+    display: flex;
+    flex-direction: column;
+}
+
+#adresse{
+    display: flex;
+    font-weight: 600;
+}
+
+.container_profil_btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.container_profil_btn button{
+    background: #1CB1B1;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 50px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.container_passwort{
+    padding: 10px 10px;
+    border: 2px solid #1CB1B1;
+    border-radius: 10px;
+    background: #fff;
+}
+
+#profil_passwort{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.container_input_label_pw{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.container_input_label_pw label{
+    width: 120px;
+    font-weight: 600;
+}
+
+.container_input_label_pw input{
+    border: 1px solid #e6e6e6;  
+    border-radius: 5px;
+}
+
+#container_anzeigen_listings{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    flex-wrap: wrap; 
+}
+
+#container_anzeigen{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    margin-left: 0;
+    padding-left: 0;
+}
+.container_profil_listings{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#container_eigene_anzeigen{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.listings{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.position_icon{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.bearbeiten_a{
+    text-decoration: none;
+    color: black;
+}
+
+.delete_btn{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.tools{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.favorites {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.btn-danger{
+    margin-top: 20px;
+    background: #f82b1e;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 100px;
+    font-weight: 600;
+    cursor: pointer;
+}

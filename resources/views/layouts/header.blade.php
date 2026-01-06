@@ -20,7 +20,7 @@
 
         <ul>
             <li>
-                <a href="#">
+                <a href="{{ route('profile') }}">
                     <img src="{{ asset('img/profile.svg') }}" alt="Konto des Benutzers">
                 </a>
             </li>
