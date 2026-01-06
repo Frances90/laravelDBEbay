@@ -3,19 +3,20 @@
         <a href="{{ route('Startseite') }}">
             <img src="{{ asset('img/logo.svg') }}" alt="Logo der App">
         </a>
-        
+        <form action="{{ route('Startseite') }}" method="GET" id="search">
         <div class="container_search">
             <div class="group_inputs" id="input_lupe">
                 <img class="icon" src="{{ asset('img/lupe.svg') }}" alt="Lupe für die Suche">
-                <input type="text" placeholder="Was suchst du?" id="input_search" />
+                <input type="text"  id="input_search" name="search" placeholder="Was suchst du?" value="{{ request('search') }}">
             </div>
 
             <div class="group_inputs">
                 <img class="icon" src="{{ asset('img/location.svg') }}" alt="Ort wo der Artikel sich befindet">
-                <input type="text" placeholder="PLZ oder Ort" />
+                <input name="search_location" type="text" placeholder=" Ort"  value="{{ request('search_location') }}">
             </div>
 
             <button class="btn_search">Suchen</button>
+        </form>
         </div>
 
         <ul>

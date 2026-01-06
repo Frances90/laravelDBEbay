@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Customer;
 use App\Models\Listing;
 use App\Models\ListingImage;
 use Illuminate\Http\Request;
@@ -13,10 +14,67 @@ class ListingController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $listings = Listing::orderBy("created_at", "desc")->paginate(10);
-        return view("listings.index", compact("listings"));
+        $query = Listing::query();
+
+        /* Suche */
+        // Suche nach Name/Beschreibung
+        if ($request->filled('search')) {
+            $searchTerm = '%' . $request->search . '%';
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('listings.name', 'LIKE', $searchTerm)
+                    ->orWhere('listings.beschreibung', 'LIKE', $searchTerm);
+            });
+        }
+
+        // Suche nach Ort
+        if ($request->filled('search_location')) {
+            $query->where('customers.ort', 'LIKE', '%' . $request->search_location . '%');
+        }
+
+        // Join mit Customers-Tabelle, um nach Standort zu filtern
+        $query->join('customers', 'listings.customer_id', '=', 'customers.id');
+
+        // Filter nach Kategorie
+        if ($request->filled('category')) {
+            $query->where('category_id', (int) $request->category);
+        }
+
+        // Filter nach Standort
+        if ($request->filled('location')) {
+            $query->where('customers.ort', $request->location);
+        }
+
+        // Filter nach Preisbereich
+        if ($request->filled('min_price') && is_numeric($request->min_price)) {
+            $query->where('preis', '>=', (float) $request->min_price);
+        }
+        if ($request->filled('max_price') && is_numeric($request->max_price)) {
+            $query->where('preis', '<=', (float) $request->max_price);
+        }
+
+        // Preisbereich-Filter
+        if ($request->filled('price_range')) {
+            // Sonderfall: 200€+
+            if ($request->price_range === '200_plus') {
+                $query->where('preis', '>=', 200);
+
+            } else {
+                // Standardfälle
+                $prices = explode('-', $request->price_range);
+
+                if (count($prices) === 2 && is_numeric($prices[0]) && is_numeric($prices[1])) {
+                    $query->whereBetween('preis', [(float) $prices[0], (float) $prices[1]]);
+                }
+            }
+        }
+
+        $locations = Customer::select('ort')->distinct()->pluck('ort');
+        $listings = $query->orderBy('listings.created_at', 'desc')->select('listings.*')->get();
+        $categories = Category::all();
+
+        return view('listings.index', compact('listings', 'categories', 'locations'));
     }
 
     /**

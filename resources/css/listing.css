@@ -1,3 +1,9 @@
+.page-layout {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+    align-items: flex-start;
+}
 .container_header_listing{
     margin: 20px;
 }

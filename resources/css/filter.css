@@ -1,0 +1,50 @@
+.filter-column {
+    width: 260px;
+    flex-shrink: 0;
+}
+.filter-sidebar{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-right: 30px;
+}
+
+.container_filter{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 20px;
+
+}
+
+.min_max_anzeige{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.min_max_anzeige input{
+    border-radius: 15px;
+    border: none;
+    padding: 15px;
+    width: 60px;
+    background-color: #c8e4ed;
+}
+
+.filter_btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.filter_btn button{
+    background: #f82b1e;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 30px;
+    font-weight: 600;
+    cursor: pointer;
+}

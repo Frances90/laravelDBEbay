@@ -10,7 +10,7 @@ class Listing extends Model
 {
     use SoftDeletes, HasFactory;
 
-    protected $fillable = ['customer_id', 'name', 'beschreibung', 'preis'];
+    protected $fillable = ['customer_id', 'name', 'beschreibung', 'preis','category_id'];
 
     public function customer(){
         return $this->belongsTo(Customer::class);
