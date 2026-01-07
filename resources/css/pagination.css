@@ -1,0 +1,28 @@
+.pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+}
+
+.pagination li{   
+    color: black;
+    font-weight: 600;
+    width: 25px;
+    height: 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination a{
+    text-decoration: none;
+    color: black;
+}
+
+.pagination li.active{
+    background-color: #f82b1e;
+    color: white;
+    border-radius: 50%;
+}

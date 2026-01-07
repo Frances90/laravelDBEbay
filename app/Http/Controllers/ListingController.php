@@ -74,6 +74,11 @@ class ListingController extends Controller
         $listings = $query->orderBy('listings.created_at', 'desc')->select('listings.*')->get();
         $categories = Category::all();
 
+        $listings = $query->orderBy('listings.created_at', 'desc')
+                      ->select('listings.*')
+                      ->paginate(15)
+                      ->appends($request->all());
+
         return view('listings.index', compact('listings', 'categories', 'locations'));
     }
 

@@ -20,4 +20,7 @@
 
         </div>
     </div>
+    <div class="container_pagination">
+    {{ $listings->links('vendor.pagination.default') }}
+    </div>
 @endsection
