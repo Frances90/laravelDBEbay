@@ -22,7 +22,6 @@
                 </div>
             </div>
             <div class="container_details_favorites">
-
                 <div class="container_details_preis">
                     <div class="container_icon_details">
                         <img class="icon_details" src="{{ asset('img/profile.svg') }}" alt="Verkäufer">
@@ -34,6 +33,7 @@
                         <img class="icon_details" src="{{ asset('img/location_black.svg') }}" alt="Standort">
                         <span class="subheaders">Adresse:</span>
                     </div>
+
                     <span class="subdetails">{{$listing->customer->strasse}} {{ $listing->customer->hausnummer }}</span>
                     <span class="subdetails">{{$listing->customer->plz}} {{$listing->customer->ort}}</span>
                     <span class="subdetails mail">{{$listing->customer->email}}</span>
@@ -42,20 +42,30 @@
                         <img class="icon_details" src="{{ asset('img/euro.svg') }}" alt="Euro">
                         <span class="subheaders">Adresse:</span>
                     </div>
+
                     <span class="subdetails preis_details">{{ number_format($listing->preis, 2) }} €</span>
                 </div>
 
-                <div class="container_favorite">
-                    <button class="container_btn">
-                        <svg width="18" height="14" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M12.3484 23.3469L12.2117 23.2206L2.63047 14.2909C0.951562 12.7266 0 10.5312 0 8.23155V8.05043C0 4.18653 2.73437 0.871482 6.51875 0.147C8.67344 -0.270125 10.8773 0.229328 12.6328 1.46973C13.125 1.82099 13.5844 2.22714 14 2.69366C14.2297 2.43021 14.4758 2.18872 14.7383 1.96369C14.9406 1.78806 15.1484 1.62341 15.3672 1.46973C17.1227 0.229328 19.3266 -0.270125 21.4813 0.141512C25.2656 0.865993 28 4.18653 28 8.05043V8.23155C28 10.5312 27.0484 12.7266 25.3695 14.2909L15.7883 23.2206L15.6516 23.3469C15.2031 23.764 14.6125 24 14 24C13.3875 24 12.7969 23.7695 12.3484 23.3469ZM13.0758 5.60805C13.0539 5.59159 13.0375 5.56963 13.0211 5.54768L12.0477 4.44998L12.0422 4.44449C10.7789 3.02297 8.87031 2.37533 7.01094 2.73208C4.4625 3.22056 2.625 5.44889 2.625 8.05043V8.23155C2.625 9.79578 3.27578 11.2941 4.41875 12.3589L14 21.2887L23.5813 12.3589C24.7242 11.2941 25.375 9.79578 25.375 8.23155V8.05043C25.375 5.45438 23.5375 3.22056 20.9945 2.73208C19.1352 2.37533 17.2211 3.02846 15.9633 4.44449C15.9633 4.44449 15.9633 4.44449 15.9578 4.44998C15.9523 4.45547 15.9578 4.44998 15.9523 4.45547L14.9789 5.55317C14.9625 5.57512 14.9406 5.59159 14.9242 5.61354C14.6781 5.86052 14.3445 5.99774 14 5.99774C13.6555 5.99774 13.3219 5.86052 13.0758 5.61354V5.60805Z"
-                                fill="red" />
-                        </svg>zu Favoriten hinzufügen
-                    </button>
-
-
-                </div>
+                <form action="{{ route('listings.favorite', $listing->id) }}" method="POST">
+                    <div class="container_favorite">
+                        @csrf
+                        <button class="container_btn" type="submit">
+                            @if(auth()->user() && auth()->user()->favorites->contains($listing->id))
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 28 24" fill="red">
+                                    <title>heart</title>
+                                    <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                                </svg>
+                                Aus Favoriten entfernen
+                            @else
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 28 24" fill="none">
+                                <title>heart-outline</title>
+                                <path d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z" 
+                                fill="red"/>
+                            </svg> Zu Favoriten hinzufügen
+                            @endif
+                        </button>
+                    </div>
+                </form>
             </div>
 
         </div>
@@ -82,5 +92,5 @@
 
 
     </div>
-    </div>
+</div>
 @endsection

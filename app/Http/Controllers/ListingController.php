@@ -7,6 +7,8 @@ use App\Models\Category;
 use App\Models\Customer;
 use App\Models\Listing;
 use App\Models\ListingImage;
+use \Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class ListingController extends Controller
@@ -75,9 +77,9 @@ class ListingController extends Controller
         $categories = Category::all();
 
         $listings = $query->orderBy('listings.created_at', 'desc')
-                      ->select('listings.*')
-                      ->paginate(15)
-                      ->appends($request->all());
+            ->select('listings.*')
+            ->paginate(15)
+            ->appends($request->all());
 
         return view('listings.index', compact('listings', 'categories', 'locations'));
     }
@@ -169,5 +171,22 @@ class ListingController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function toggleFavorite($id): RedirectResponse
+    {
+        $user = Auth::user();
+        $listing = Listing::findOrFail($id);
+
+        if ($user->favorites()->where('listing_id', $id)->exists()) {
+            $user->favorites()->detach($listing);
+            return redirect()->back()->with('success', 'Als Favorit entfernt');
+
+        } else {
+            $user->favorites()->attach($listing);
+            return redirect()->back()->with('success', 'Zu Favoriten hinzugefügt');
+        }
+
+        
     }
 }

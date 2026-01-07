@@ -29,6 +29,10 @@ Route::middleware(['auth'])->group(function () {
  
 });
 
+Route::post('/listings/{id}/favorite', [ListingController::class, 'toggleFavorite'])
+    ->middleware('auth')
+    ->name('listings.favorite');
+
 // Detailansicht für Listings
 Route::get('/listings/{listing}', [ListingController::class, 'show'])->name('listings.show');
 
