@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Mail\WelcomeMail;
+use Illuminate\Support\Facades\Mail;
 
 class RegisteredUserController extends Controller
 {
@@ -55,6 +57,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($customer);
 
+        Mail::to($customer->email)->send(new WelcomeMail($customer));
         return redirect(route('Startseite', absolute: false));
     }
 }
