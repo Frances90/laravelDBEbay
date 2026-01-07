@@ -23,7 +23,7 @@
     flex-direction: row;
     align-items: center;
     gap: 10px;
-    margin: 30px 0;
+    margin: 30px 10px 0px 10px;
 }
 
 .container_verwalten_label_input_btn{
@@ -87,5 +87,52 @@
     border-radius: 25px;
     padding: 10px 50px;
     font-weight: 600;
+    cursor: pointer;
+}
+
+.edit_image_size{
+    width: 150px;
+}
+
+.image-gallery{
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    gap: 20px;
+}
+
+.edit_delete_icon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f82b1e;
+    border: none;
+    padding: 2px 5px;
+    border-radius: 50%;
+}
+
+.edit_form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+input[type=file]::file-selector-button {
+  border: none;
+  padding: 10px 30px;
+  border-radius: 5px;
+  background-color: #f82b1e;
+  color: white;
+  cursor: pointer;
+}
+
+.edit_form button{
+    background: #1CB1B1;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 15px;
     cursor: pointer;
 }

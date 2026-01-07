@@ -33,6 +33,12 @@ Route::post('/listings/{id}/favorite', [ListingController::class, 'toggleFavorit
     ->middleware('auth')
     ->name('listings.favorite');
 
+Route::post('/listings/{listing}/images', [ListingController::class, 'updateImages'])
+    ->middleware('auth')->name('listings.images.update');
+
+Route::delete('/listings/images/{image}', [ListingController::class, 'deleteImage'])
+    ->middleware('auth')->name('listings.images.delete');
+
 // Detailansicht für Listings
 Route::get('/listings/{listing}', [ListingController::class, 'show'])->name('listings.show');
 
